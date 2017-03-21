@@ -1,6 +1,8 @@
 package br.com.univallesys.daos;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -42,11 +44,17 @@ GrupoProdutosDAO {
 	      manager.merge(grupo);
 	   }
 
-	public List<GrupoDeProdutos> findByGrupo(String grupo)
+		public List<GrupoDeProdutos> findByGrupo(String grupo)
+		{
+			Query query = manager.createQuery("select g from GrupoDeProdutos g where g.getCompany_id LIKE :grupo", GrupoDeProdutos.class);
+			query.setParameter("grupo" ,"%"+grupo );
+			return query.getResultList();
+		}
+
+	public List<GrupoDeProdutos> findByGrupoLambda(String grupo)
 	{
-		Query query = manager.createQuery("select g from GrupoDeProdutos g where g.getCompany_id LIKE :grupo", GrupoDeProdutos.class);
-		query.setParameter("grupo" ,"%"+grupo );
-		return query.getResultList();
+		Stream<GrupoDeProdutos> streamPessoas = all().stream();
+		return streamPessoas.filter(p -> p.getProduct_group_id().startsWith(grupo)).collect(Collectors.toList());
 	}
 
 
