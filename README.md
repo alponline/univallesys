@@ -9,6 +9,8 @@ The following dependencies are necessary:
 
  - Java 8
  - bower
+ - npm
+ - nodejs
  - maven 3
 
 ### Installing frontend dependencies ###
@@ -27,7 +29,7 @@ After the server starts, the application is accessible at the following URL:
 
     http://localhost:8080/login
 
-To see a user with existing data (16 meals, 8 days from 1st of January 2015 to the 8th), login with the following credentials:
+To see a user with existing data, login with the following credentials:
 
     "username": "exemplo@exemplo.com",
     "password": "123quatro5678",
