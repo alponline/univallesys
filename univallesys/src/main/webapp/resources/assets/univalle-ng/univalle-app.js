@@ -14,14 +14,12 @@ var univalle = {
 		confirmPassword: '',
 		requestHash: '',
 		errorMessage: ''
-	}
-};
-
-var product = {
-	current:{
-		nameProduct: '',
+	},
+	product: {
+		name: '',
 		code:'',
 		price:'',
-		purchaseDate:''
+		purchaseDate:'',
+		errorMessage: ''
 	}
 };

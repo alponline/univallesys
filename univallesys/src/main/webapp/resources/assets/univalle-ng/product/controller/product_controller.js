@@ -6,16 +6,18 @@ univalleApp.controller('ProductController', ['$scope','ProductService', function
 
 		$scope.listProducts = {};
 		$scope.getProduct = {};
-		model.current = product.current;
+		$scope.productCurrent = {};
+		model.current = univalle.product;
+		$scope.model = model;
 		$scope.alertMessage = "";
 		$scope.clickedUser = {};
 
 
 		//ListAll
 		//------------------------------------------------------------------------
-		$scope.listProducts = function() {
+		$scope.listAllProducts = function() {
 			var listProduct = {};
-			 ProductService.get("produto",listProduct, sucessProdutos, errorProdutos);
+			 ProductService.get("produtos",listProduct, sucessProdutos, errorProdutos);
 		};
 
 		var sucessProdutos = function(data) {
@@ -60,8 +62,9 @@ univalleApp.controller('ProductController', ['$scope','ProductService', function
 		//Add Product
 		//------------------------------------------------------------------------
 		$scope.addProduct = function() {
-			var product_intent = $scope.getProduct;
-			ProductService.post("produto", model.current, sucessAddProduto, errorAddProduto);
+			var product_intent = {};
+			product_intent = model.current;
+			ProductService.post("produto", product_intent, sucessAddProduto, errorAddProduto);
 		};
 
 		var sucessAddProduto = function(data) {
@@ -91,6 +94,15 @@ univalleApp.controller('ProductController', ['$scope','ProductService', function
 		$scope.clickedAlert = function(){
         $scope.alertMessage = "";
     };
+
+		$scope.resetError = function() {
+			model.current.errorMessage = ""
+		};
+
+		$scope.setError = function(message) {
+			$scope.error = true;
+			model.current.errorMessage = message
+		};
 
 
 }]);

@@ -2,14 +2,14 @@ module.exports = function(app) {
 
         var products = [{
             id: 1,
-            nameProduct: 'Produto 1',
+            name: 'Produto 1',
             code: '0111',
             price: '1,00',
             date: '19-03-2017'
           },
           {
               id: 2,
-              nameProduct: 'Produto 2',
+              name: 'Produto 2',
               code: '0222',
               price: '2,00',
               date: '20-03-2017'
