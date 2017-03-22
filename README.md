@@ -27,7 +27,7 @@ To build the backend and start the server, run the following command on the root
 
 After the server starts, the application is accessible at the following URL:
 
-    http://localhost:8080/login
+    http://localhost:8080/univalle/login
 
 To see a user with existing data, login with the following credentials:
 
