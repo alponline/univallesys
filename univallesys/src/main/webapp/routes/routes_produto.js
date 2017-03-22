@@ -2,22 +2,26 @@ module.exports = function(app) {
 
         var products = [{
             id: 1,
-            name: 'Produto 1',
+            nameProduct: 'Produto 1',
             code: '0111',
             price: '1,00',
             date: '19-03-2017'
           },
           {
               id: 2,
-              name: 'Produto 2',
+              nameProduct: 'Produto 2',
               code: '0222',
               price: '2,00',
               date: '20-03-2017'
             }];
 
+            var message = {
+              status: ''
+            };
+
     app.get('/univalle/produto-page', function(req, res) {
         var path = require('path');
-        res.sendfile(path.resolve('./WEB-INF/views/produto/form_produto.html'));
+        res.sendfile(path.resolve('./WEB-INF/views/produtos/listProducts.html'));
     });
 
     app.get('/univalle/produtos', function(req, res) {
@@ -37,16 +41,19 @@ module.exports = function(app) {
 
    app.delete('/univalle/produto/:id', function(req, res) { //{id} delete id
       var id = req.params.id;
-      res.end(JSON.stringify("HttpStatus.OK - PRODUTO: " + id + " DELETE"));
+      message.status = "HttpStatus.OK - PRODUTO: " + id + " DELETE";
+      res.end(JSON.stringify(message));
    });
 
    app.post('/univalle/produto', function(req, res) {
-       res.end(JSON.stringify("HttpStatus.OK - ADD"));
+       message.status = "HttpStatus.OK - ADD";
+       res.end(JSON.stringify(message));
    });
 
    app.put('/univalle/produto/:id', function(req, res) { //{id} update id
        var id = req.params.id;
-       res.end(JSON.stringify("HttpStatus.OK - PRODUTO: " + id + " UPDATE"));
+       message.status = "HttpStatus.OK - PRODUTO: " + id + " UPDATE";
+       res.end(JSON.stringify(message));
    });
 
 };

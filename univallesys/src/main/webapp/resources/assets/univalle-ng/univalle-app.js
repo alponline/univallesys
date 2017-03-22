@@ -5,7 +5,7 @@ var univalleApp = angular.module("univalleApp",[]);
 var univalle = {
 	ident: {
 		id: '',
-		name: '',
+		user: '',
 		email: '',
 		username: '',
 		password: '',
@@ -19,7 +19,7 @@ var univalle = {
 
 var product = {
 	current:{
-		name: '',
+		nameProduct: '',
 		code:'',
 		price:'',
 		purchaseDate:''

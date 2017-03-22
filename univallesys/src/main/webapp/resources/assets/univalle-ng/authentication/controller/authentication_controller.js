@@ -11,7 +11,7 @@ univalleApp.controller("AuthenticationController", [
 			$scope.checkCredentials = function() {
 				var login_intent = {};
 
-				login_intent.email = model.ident.username;
+				login_intent.user = model.ident.username;
 				login_intent.password = model.ident.password;
 
 				AuthenticationService.post("check-credentials", login_intent,
